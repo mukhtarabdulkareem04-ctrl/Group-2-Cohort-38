@@ -14,7 +14,7 @@ The codebase is designed around clean Object-Oriented Programming (OOP) principl
 | **Faith: OOP Models** | Domain data modeling & nutritional threshold analysis | `FoodProduct`, `NutritionAnalyzer` |
 | **Zainab: File I/O** | Persistent logging and data export | `FoodLogManager` (JSON & CSV) |
 | **Mukhtar: Exception Handling** | Custom application-specific error management | `FoodAnalyzerError` hierarchy |
-| **Member 6: Integration & CLI** | Main execution pipeline & user interface controller | `FoodAnalyzerApp` |
+| **Zainab: Integration & CLI** | Main execution pipeline & user interface controller | `FoodAnalyzerApp` |
 
 
 
