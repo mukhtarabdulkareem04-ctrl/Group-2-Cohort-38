@@ -1,0 +1,129 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    OBJECT-ORIENTED PROGRAMMING (OOP) <br /><br />class FoodProduct:<br />&nbsp;&nbsp;&nbsp;
+    """Data model representing a food item."""<br />&nbsp;&nbsp;&nbsp; def
+    __init__(self, barcode: str, name: str, brand: str, ingredients: list[str],
+    nutriments: dict):<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://self.barcode">self.barcode</a> = barcode<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://self.name">self.name</a> = name or "Unknown Product"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://self.brand">self.brand</a> = brand or "Unknown Brand"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://self.ingredients">self.ingredients</a> = ingredients<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://self.nutriments">self.nutriments</a> = nutriments<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Extract core nutrient
+    values per <a href="tel:100">100</a>g/<a href="tel:100">100</a
+    >ml<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://self.calories">self.calories</a> = float(<a
+      href="http://nutriments.get"
+      >nutriments.get</a
+    >("energy-kcal_<a href="tel:100">100</a>g", 0) or 0)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://self.sugar">self.sugar</a> = float(<a
+      href="http://nutriments.get"
+      >nutriments.get</a
+    >("sugars_<a href="tel:100">100</a>g", 0) or 0)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://self.fat">self.fat</a> = float(<a
+      href="http://nutriments.get"
+      >nutriments.get</a
+    >("fat_<a href="tel:100">100</a>g", 0) or 0)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    self.saturated_fat = float(<a href="http://nutriments.get">nutriments.get</a
+    >("saturated-fat_<a href="tel:100">100</a>g", 0) or 0)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://self.salt">self.salt</a> = float(<a
+      href="http://nutriments.get"
+      >nutriments.get</a
+    >("salt_<a href="tel:100">100</a>g", 0) or 0)<br /><br />&nbsp;&nbsp;&nbsp;
+    def to_dict(self) -&gt; dict:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    """Converts the object to a dictionary for file saving."""<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    return {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    "barcode":
+    <a href="http://self.barcode">self.barcode</a
+    >,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    "name":
+    <a href="http://self.name">self.name</a
+    >,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    "brand":
+    <a href="http://self.brand">self.brand</a
+    >,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    "calories_<a href="tel:100">100</a>g":
+    <a href="http://self.calories">self.calories</a
+    >,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    "sugar_<a href="tel:100">100</a>g":
+    <a href="http://self.sugar">self.sugar</a
+    >,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    "fat_<a href="tel:100">100</a>g":
+    <a href="http://self.fat">self.fat</a
+    >,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    "saturated_fat_<a href="tel:100">100</a>g": self.saturated_fat,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    "salt_<a href="tel:100">100</a>g":
+    <a href="http://self.salt">self.salt</a
+    >,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    "ingredients": <a href="http://self.ingredients">self.ingredients</a
+    ><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br /><br /><br />class
+    NutritionAnalyzer:<br />&nbsp;&nbsp;&nbsp; """Analyzes nutrient levels
+    against standard traffic-light thresholds per
+    <a href="tel:100">100</a>g."""<br />&nbsp;&nbsp;&nbsp;
+    <br />&nbsp;&nbsp;&nbsp; # Standard high thresholds per
+    <a href="tel:100">100</a>g<br />&nbsp;&nbsp;&nbsp; HIGH_SUGAR =
+    <a href="tel:12.5">12.5</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # g<br />&nbsp;&nbsp;&nbsp;
+    HIGH_FAT =
+    <a href="tel:17.5">17.5</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    # g<br />&nbsp;&nbsp;&nbsp; HIGH_SAT_FAT =
+    <a href="tel:5.0">5.0</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # g<br />&nbsp;&nbsp;&nbsp;
+    HIGH_SALT =
+    <a href="tel:1.5">1.5</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #
+    g<br />&nbsp;&nbsp;&nbsp; HIGH_CALORIES =
+    <a href="tel:400.0">400.0</a>&nbsp;&nbsp; # kcal<br /><br />&nbsp;&nbsp;&nbsp;
+    COMMON_ALLERGENS = ["milk", "egg", "peanuts", "nuts", "soy", "wheat",
+    "fish", "shellfish", "gluten", "sesame"]<br /><br />&nbsp;&nbsp;&nbsp; def
+    __init__(self, product: FoodProduct):<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://self.product">self.product</a> = product<br /><br />&nbsp;&nbsp;&nbsp;
+    def evaluate_warnings(self) -&gt; list[str]:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    """Returns a list of high-level nutritional warnings."""<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    warnings = []<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if
+    <a href="http://self.product.sugar">self.product.sugar</a> &gt;=
+    self.HIGH_SUGAR:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://warnings.append">warnings.append</a>(f"High Sugar ({<a
+      href="http://self.product.sugar"
+      >self.product.sugar</a
+    >}g /
+    <a href="tel:100">100</a
+    >g)")<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if
+    <a href="http://self.product.fat">self.product.fat</a> &gt;=
+    self.HIGH_FAT:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://warnings.append">warnings.append</a>(f"High Fat ({<a
+      href="http://self.product.fat"
+      >self.product.fat</a
+    >}g /
+    <a href="tel:100">100</a
+    >g)")<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if
+    <a href="http://self.product">self.product</a>.saturated_fat &gt;=
+    self.HIGH_SAT_FAT:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://warnings.append">warnings.append</a>(f"High Saturated Fat
+    ({<a href="http://self.product">self.product</a>.saturated_fat}g /
+    <a href="tel:100">100</a
+    >g)")<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if
+    <a href="http://self.product.salt">self.product.salt</a> &gt;=
+    self.HIGH_SALT:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://warnings.append">warnings.append</a>(f"High Salt ({<a
+      href="http://self.product.salt"
+      >self.product.salt</a
+    >}g /
+    <a href="tel:100">100</a
+    >g)")<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if
+    <a href="http://self.product.calories">self.product.calories</a> &gt;=
+    self.HIGH_CALORIES:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="http://warnings.append">warnings.append</a>(f"High Calories ({<a
+      href="http://self.product.calories"
+      >self.product.calories</a
+    >} kcal /
+    <a href="tel:100">100</a
+    >g)")<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return warnings<br /><br />&nbsp;&nbsp;&nbsp;
+    def check_allergens(self) -&gt; list[str]:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    """Checks product ingredients for potential allergens using
+    DataValidator."""<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return
+    DataValidator.detect_allergens(<a href="http://self.product.ingredients"
+      >self.product.ingredients</a
+    >, self.COMMON_ALLERGENS)<br />
+  </body>
+</html>
