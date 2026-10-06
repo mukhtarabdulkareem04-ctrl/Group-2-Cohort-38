@@ -9,11 +9,11 @@ The codebase is designed around clean Object-Oriented Programming (OOP) principl
 
 | Module / Member Focus | Responsibility | Key Components |
 | :--- | :--- | :--- |
-| **Member 1: API Integration** | REST API communication & AI response simulation | `OpenFoodFactsClient`, `GeminiExplainer` |
-| **Member 2: Data & Regex** | Input validation, ingredient cleaning, allergen search | `DataValidator` |
-| **Member 3: OOP Models** | Domain data modeling & nutritional threshold analysis | `FoodProduct`, `NutritionAnalyzer` |
-| **Member 4: File I/O** | Persistent logging and data export | `FoodLogManager` (JSON & CSV) |
-| **Member 5: Exception Handling** | Custom application-specific error management | `FoodAnalyzerError` hierarchy |
+| **Owodele: API Integration** | REST API communication & AI response simulation | `OpenFoodFactsClient`, `GeminiExplainer` |
+| **Mukhtar: Data & Regex** | Input validation, ingredient cleaning, allergen search | `DataValidator` |
+| **Faith: OOP Models** | Domain data modeling & nutritional threshold analysis | `FoodProduct`, `NutritionAnalyzer` |
+| **Zainab: File I/O** | Persistent logging and data export | `FoodLogManager` (JSON & CSV) |
+| **Mukhtar: Exception Handling** | Custom application-specific error management | `FoodAnalyzerError` hierarchy |
 | **Member 6: Integration & CLI** | Main execution pipeline & user interface controller | `FoodAnalyzerApp` |
 
 
