@@ -42,8 +42,8 @@ class FoodLogManager:
         try:
             with open(self.csv_filename, "w", newline="", encoding="utf-8") as file:
                 writer = csv.DictWriter(file, fieldnames=headers)
-            writer.writeheader()
-            for record in logs:
+                writer.writeheader()
+                 for record in logs:
                     writer.writerow({
                         "timestamp": record.get("timestamp", ""),
                         "barcode": record.get("barcode", ""),
